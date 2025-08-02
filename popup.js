@@ -80,7 +80,7 @@ function formatShortcutForDisplay(shortcut) {
   if (!shortcut) return "Not set";
 
   // Detect if user is on Mac
-  const isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+  const isMac = navigator.userAgentData?.platform === 'macOS' || navigator.userAgent.includes('Mac');
 
   if (isMac) {
     // Convert to Mac symbols
