@@ -6,28 +6,36 @@
       :root {
         /* Light mode variables */
         --bg-primary: #ffffff;
-        --bg-secondary: #f8f9fa;
-        --text-primary: #333333;
-        --text-secondary: #666666;
-        --accent-primary: #1a73e8;
-        --accent-hover: #1557b0;
-        --border-primary: #e8eaed;
-        --border-secondary: #dadce0;
-        --shadow: rgba(0, 0, 0, 0.1);
+        --bg-secondary: #f8fafc;
+        --text-primary: #0f172a;
+        --text-secondary: #475569;
+        --accent-primary: #2563eb;
+        --accent-hover: #1d4ed8;
+        --border-primary: #e2e8f0;
+        --border-secondary: #e5e7eb;
+        --shadow: rgba(2, 6, 23, 0.12);
+        --gradient-1: #6366f1;
+        --gradient-2: #22d3ee;
+        --glass-bg: rgba(255, 255, 255, 0.65);
+        --ring-color: rgba(37, 99, 235, 0.2);
       }
 
       @media (prefers-color-scheme: dark) {
         :root {
           /* Dark mode variables */
-          --bg-primary: #1a1a1a;
-          --bg-secondary: #2d2d2d;
-          --text-primary: #e0e0e0;
-          --text-secondary: #a0a0a0;
-          --accent-primary: #2563eb;
-          --accent-hover: #1d4ed8;
-          --border-primary: #404040;
-          --border-secondary: #555555;
-          --shadow: rgba(0, 0, 0, 0.3);
+          --bg-primary: #0b0f17;
+          --bg-secondary: #0f172a;
+          --text-primary: #e5e7eb;
+          --text-secondary: #94a3b8;
+          --accent-primary: #60a5fa;
+          --accent-hover: #3b82f6;
+          --border-primary: #1f2937;
+          --border-secondary: #263242;
+          --shadow: rgba(0, 0, 0, 0.35);
+          --gradient-1: #38bdf8;
+          --gradient-2: #a78bfa;
+          --glass-bg: rgba(15, 23, 42, 0.5);
+          --ring-color: rgba(96, 165, 250, 0.22);
         }
       }
 
@@ -37,78 +45,100 @@
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
           sans-serif;
         margin: 0;
-        background: var(--bg-primary);
         color: var(--text-primary);
-        transition: all 0.2s ease;
+        background: var(--bg-primary);
+        transition: color 0.2s ease, background 0.2s ease;
       }
 
       .header {
         text-align: center;
-        margin-bottom: 20px;
+        margin-bottom: 18px;
+        position: relative;
       }
+
+      .logo { display: none; }
 
       .header h1 {
         margin: 0;
-        color: var(--accent-primary);
-        font-size: 24px;
+        font-size: 20px;
+        letter-spacing: 0.2px;
+        color: var(--text-primary);
       }
 
       .header p {
-        margin: 5px 0 0 0;
+        margin: 6px 0 0 0;
         color: var(--text-secondary);
-        font-size: 14px;
+        font-size: 13px;
       }
 
       .section {
-        margin-bottom: 25px;
+        margin-bottom: 18px;
       }
 
       .section h3 {
-        margin: 0 0 15px 0;
+        margin: 0 0 12px 0;
         color: var(--text-primary);
-        font-size: 16px;
-        border-bottom: 2px solid var(--accent-primary);
-        padding-bottom: 5px;
+        font-size: 14px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .section h3::after {
+        content: "";
+        flex: 1 1 auto;
+        height: 1px;
+        background: linear-gradient(90deg, var(--border-primary), transparent);
       }
 
       .primary-actions {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 10px;
-        margin-bottom: 15px;
+        margin-bottom: 14px;
       }
 
       .action-btn {
-        padding: 12px 8px;
-        background: var(--accent-primary);
-        color: white;
-        border: none;
-        border-radius: 6px;
+        padding: 10px 12px;
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+        border: 1px solid var(--border-primary);
+        border-radius: 8px;
         cursor: pointer;
         font-size: 13px;
-        transition: all 0.2s;
-        text-align: center;
-        font-weight: 500;
-        box-shadow: 0 2px 4px var(--shadow);
+        font-weight: 600;
+        letter-spacing: 0.2px;
+        transition: background 0.15s ease, border-color 0.15s ease, transform 0.05s ease, box-shadow 0.15s ease;
       }
 
-      .action-btn:hover {
-        background: var(--accent-hover);
-        transform: translateY(-1px);
-        box-shadow: 0 4px 8px var(--shadow);
+      .action-btn .icon { display: none; }
+
+      .action-btn:hover { border-color: var(--accent-primary); }
+
+      .action-btn:active { transform: translateY(1px); }
+
+      .action-btn:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 3px var(--ring-color);
+        border-color: var(--accent-primary);
       }
+
+      .action-btn.primary {
+        background: var(--accent-primary);
+        color: #fff;
+        border-color: var(--accent-primary);
+      }
+
+      .action-btn.primary:hover { background: var(--accent-hover); }
 
       .action-btn.secondary {
         background: var(--bg-secondary);
         color: var(--text-primary);
-        border: 1px solid var(--border-secondary);
+        border: 1px solid var(--border-primary);
       }
 
-      .action-btn.secondary:hover {
-        background: var(--accent-primary);
-        color: white;
-        border-color: var(--accent-primary);
-      }
+      .action-btn.secondary:hover { background: var(--bg-primary); }
 
       .more-actions {
         display: grid;
@@ -118,49 +148,61 @@
 
       .more-actions .action-btn {
         font-size: 12px;
-        padding: 10px 6px;
+        padding: 10px 8px;
+        border-radius: 8px;
+        font-weight: 600;
       }
 
       .shortcuts-info {
         background: var(--bg-secondary);
-        padding: 15px;
-        border-radius: 8px;
+        padding: 14px;
+        border-radius: 10px;
         border: 1px solid var(--border-primary);
+        box-shadow: none;
+        backdrop-filter: none;
       }
 
       .shortcut-item {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 8px;
+        padding: 8px 0;
         font-size: 13px;
+        border-bottom: 1px dashed var(--border-secondary);
       }
 
       .shortcut-item:last-child {
-        margin-bottom: 0;
+        border-bottom: 0;
       }
 
       .shortcut-name {
-        font-weight: 500;
+        font-weight: 600;
         color: var(--text-primary);
       }
 
       .shortcut-key {
         background: var(--bg-primary);
-        padding: 3px 6px;
-        border-radius: 4px;
-        font-family: monospace;
+        padding: 4px 8px;
+        border-radius: 6px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
         font-size: 11px;
         color: var(--text-secondary);
         border: 1px solid var(--border-secondary);
-        min-width: 60px;
+        min-width: 64px;
         text-align: center;
       }
 
+      .shortcut-key.unset {
+        opacity: 0.7;
+        font-style: italic;
+      }
+
+      .shortcut-key.loading { opacity: 0.6; }
+
       .footer {
         text-align: center;
-        margin-top: 20px;
-        padding-top: 15px;
+        margin-top: 14px;
+        padding-top: 12px;
         border-top: 1px solid var(--border-primary);
         font-size: 12px;
         color: var(--text-secondary);
@@ -169,38 +211,28 @@
       .footer a {
         color: var(--accent-primary);
         text-decoration: none;
+        font-weight: 600;
       }
 
       .footer a:hover {
         text-decoration: underline;
       }
-
-      .loading {
-        opacity: 0.5;
-      }
     </style>
   </head>
   <body>
     <div class="header">
+      <div class="logo">🧭</div>
       <h1>Tab Master</h1>
-      <p>Advanced Tab Management</p>
+      <p>Advanced tab management made delightful</p>
     </div>
 
     <div class="section">
       <h3>⚡ Main Actions (with shortcuts)</h3>
       <div class="primary-actions">
-        <button class="action-btn" data-action="close-other-tabs">
-          Close Others
-        </button>
-        <button class="action-btn" data-action="duplicate-tab">
-          Duplicate Tab
-        </button>
-        <button class="action-btn" data-action="new-tab-close-others">
-          New + Close Others
-        </button>
-        <button class="action-btn" data-action="pin-unpin-tab">
-          Pin/Unpin Tab
-        </button>
+        <button class="action-btn primary" data-action="close-other-tabs">Close Others</button>
+        <button class="action-btn primary" data-action="duplicate-tab">Duplicate Tab</button>
+        <button class="action-btn primary" data-action="new-tab-close-others">New + Close Others</button>
+        <button class="action-btn primary" data-action="pin-unpin-tab">Pin/Unpin Tab</button>
       </div>
 
       <div class="shortcuts-info">
@@ -226,21 +258,11 @@
     <div class="section">
       <h3>🔧 Extra Actions (click only)</h3>
       <div class="more-actions">
-        <button class="action-btn secondary" data-action="close-tabs-left">
-          Close ← Left
-        </button>
-        <button class="action-btn secondary" data-action="close-tabs-right">
-          Close Right →
-        </button>
-        <button class="action-btn secondary" data-action="move-to-new-window">
-          New Window
-        </button>
-        <button class="action-btn secondary" data-action="close-duplicate-tabs">
-          Close Duplicates
-        </button>
-        <button class="action-btn secondary" data-action="close-unpinned-tabs">
-          Close Unpinned
-        </button>
+        <button class="action-btn secondary" data-action="close-tabs-left">Close Left</button>
+        <button class="action-btn secondary" data-action="close-tabs-right">Close Right</button>
+        <button class="action-btn secondary" data-action="move-to-new-window">New Window</button>
+        <button class="action-btn secondary" data-action="close-duplicate-tabs">Close Duplicates</button>
+        <button class="action-btn secondary" data-action="close-unpinned-tabs">Close Unpinned</button>
       </div>
     </div>
 

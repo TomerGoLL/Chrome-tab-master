@@ -40,5 +40,10 @@
       },
       "description": "Pin/Unpin current tab"
     }
+  },
+  "icons": {
+    "16": "/photos/generated-image.png",
+    "48": "/photos/generated-image.png",
+    "128": "/photos/generated-image.png"
   }
 }

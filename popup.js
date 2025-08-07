@@ -13,13 +13,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         await chrome.runtime.sendMessage({ command: action });
 
         // Visual feedback
-        const originalText = button.textContent;
-        button.textContent = "✓";
-        button.style.background = "#4CAF50";
+        const originalHTML = button.innerHTML;
+        button.innerHTML = "✓";
+        button.style.transform = "translateY(1px)";
 
         setTimeout(() => {
-          button.textContent = originalText;
-          button.style.background = "";
+          button.innerHTML = originalHTML;
+          button.style.transform = "";
         }, 1000);
 
         // Close popup after action
@@ -61,11 +61,11 @@ async function loadActualShortcuts() {
           if (command.shortcut) {
             // Format the shortcut for display
             element.textContent = formatShortcutForDisplay(command.shortcut);
-            element.style.opacity = "1";
+            element.classList.remove("loading");
           } else {
             element.textContent = "Not set";
-            element.style.opacity = "0.5";
-            element.style.fontStyle = "italic";
+            element.classList.remove("loading");
+            element.classList.add("unset");
           }
         }
       }
