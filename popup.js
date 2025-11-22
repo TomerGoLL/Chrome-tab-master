@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   await loadActualShortcuts();
 
   // Add click handlers for quick action buttons
-  document.querySelectorAll(".action-btn").forEach((button) => {
+  document.querySelectorAll("[data-action]").forEach((button) => {
     button.addEventListener("click", async () => {
       const action = button.dataset.action;
 

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  
+  <!-- Main Container/Background -->
+  <rect x="14" y="14" width="100" height="100" rx="28" fill="url(#grad)" filter="url(#shadow)" />
+  
+  <!-- Icon Graphic -->
+  <g transform="translate(64, 66) scale(1) translate(-64, -64)">
+    <!-- Rear Tab -->
+    <path d="M38 42 L38 38 C38 31.37 43.37 26 50 26 L78 26 C84.63 26 90 31.37 90 38 L90 42" 
+          fill="none" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.4" />
+          
+    <!-- Front Window Shape -->
+    <rect x="28" y="42" width="72" height="56" rx="10" 
+          fill="white" fill-opacity="0.1" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+          
+    <!-- Header Line -->
+    <line x1="28" y1="60" x2="100" y2="60" stroke="white" stroke-width="6" />
+    
+    <!-- Checkmark Symbol -->
+    <path d="M48 76 L58 84 L80 66" 
+          fill="none" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+</svg>

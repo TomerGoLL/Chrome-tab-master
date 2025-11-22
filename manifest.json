@@ -42,8 +42,8 @@
     }
   },
   "icons": {
-    "16": "/photos/generated-image.png",
-    "48": "/photos/generated-image.png",
-    "128": "/photos/generated-image.png"
+    "16": "photos/icon.svg",
+    "48": "photos/icon.svg",
+    "128": "photos/icon.svg"
   }
 }
